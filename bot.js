@@ -26,5 +26,7 @@ function gotMessage(msg) {
         // msg.channel.send('Hello from Sagnik ❤');
         const index = Math.floor((Math.random() * replies.length));
         msg.reply(replies[index]);
+    } else if (msg.content == '!gif') {
+        msg.channel.send("gif!");
     }
 }
