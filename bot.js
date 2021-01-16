@@ -22,16 +22,23 @@ const replies = [
 client.on('message', gotMessage);
 
 async function gotMessage(msg) {
-    console.log(msg.content);
+    // console.log(msg.content);
     // if (msg,channel.id == 'CHANNEL ID' && msg.content == 'Hi') {
+    let tokens = msg.content.split(' ');
+
     if (msg.content == 'Hi') {
         // msg.channel.send('Hello from Sagnik ❤');
         const index = Math.floor((Math.random() * replies.length));
         msg.reply(replies[index]);
-    } else if (msg.content == '!gif') {
+    } else if (tokens[0] == '!gif') {
         // msg.channel.send("gif!");
 
-        let url = `https://api.tenor.com/v1/search?q=sagnik&key=${process.env.TENORKEY}&limit=8`
+        let keywords = 'sagnik'; // default sagnik gif search
+        if (tokens.length > 1) {
+            keywords = tokens.slice(1, tokens.length).join(" ");
+        }
+
+        let url = `https://api.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&limit=8`
         let response = await fetch(url);
         let json = await response.json();
         const index = Math.floor((Math.random() * json.results.length));
