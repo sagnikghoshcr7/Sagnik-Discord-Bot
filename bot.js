@@ -43,5 +43,6 @@ async function gotMessage(msg) {
         let json = await response.json();
         const index = Math.floor((Math.random() * json.results.length));
         msg.channel.send(json.results[index].url);
+        msg.channel.send("GIF by Sagnik BOT ");
     }
 }
