@@ -13,6 +13,6 @@ client.on('message', gotMessage);
 function gotMessage(msg) {
     console.log(msg.content);
     if (msg.content == 'Hi') {
-        msg.reply('Hello');
+        msg.reply('Hello from Sagnik ❤');
     }
 }
