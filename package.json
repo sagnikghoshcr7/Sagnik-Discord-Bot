@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Discord Bot",
   "main": "bot.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
+    "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sagnik",
